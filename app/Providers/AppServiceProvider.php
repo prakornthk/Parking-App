@@ -7,6 +7,7 @@ use App\Repositories\CarParkRepositoryInterface;
 use App\Repositories\ParkingRepository;
 use App\Repositories\ParkingRepositoryInterface;
 use App\Repositories\ParkingSlotRepository;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,6 +27,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        URL::forceScheme('https');
     }
 }
