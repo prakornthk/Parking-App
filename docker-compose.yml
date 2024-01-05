@@ -38,8 +38,7 @@ services:
             - app-network
 
     mysql:
-        image: mysql/mysql-server:latest-aarch64
-        container_name: mysql
+        image: mysql/mysql-server:latest
         tty: true
         expose:
             - "3306"
@@ -58,21 +57,6 @@ services:
         networks:
             - app-network
 
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        platform: linux/amd64
-        restart: always
-        environment:
-            PMA_HOST: mysql
-            # PMA_USER: root
-            # PMA_PASSWORD: 12345678
-            UPLOAD_LIMIT: 10G
-        ports:
-            - "8888:80"
-        networks:
-            - app-network
-        depends_on:
-            - mysql
 
 # Docker Networks
 networks:
