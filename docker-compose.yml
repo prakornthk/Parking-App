@@ -5,7 +5,6 @@ services:
         build:
             context: ./.docker/php
             dockerfile: Dockerfile
-        container_name: php
         depends_on:
             - mysql
         restart: unless-stopped
@@ -20,7 +19,6 @@ services:
 
     nginx:
         image: nginx:stable-alpine
-        container_name: nginx
         depends_on:
             - php
         restart: unless-stopped
