@@ -46,6 +46,7 @@ class CarParkController extends Controller
     {
         $carPark = $parkingSlot->carPark;
         $checkoutTime = now();
+
         $parkingFee = ParkingFeeCalculatorService::calculate(
             $parkingSlot->parking->parking_fee,
             Carbon::create($carPark->check_in),
@@ -58,6 +59,7 @@ class CarParkController extends Controller
         ];
 
         $this->carParkRepository->checkout(
+            $parkingSlot,
             $carPark,
             $data
         );

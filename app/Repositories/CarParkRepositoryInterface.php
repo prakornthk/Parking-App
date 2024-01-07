@@ -16,9 +16,10 @@ interface CarParkRepositoryInterface
     public function checkin(ParkingSlot $parkingSlot, array $data): Model;
 
     /**
+     * @param ParkingSlot $parkingSlot
      * @param CarPark $carPark
      * @param array $data
      * @return bool
      */
-    public function checkout(CarPark $carPark, array $data): bool;
+    public function checkout(ParkingSlot $parkingSlot, CarPark $carPark, array $data): bool;
 }

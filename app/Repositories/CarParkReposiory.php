@@ -26,13 +26,14 @@ class CarParkReposiory implements CarParkRepositoryInterface
     }
 
     /**
+     * @param ParkingSlot $parkingSlot
      * @param CarPark $carPark
      * @param array $data
      * @return bool
      */
-    public function checkout(CarPark $carPark, array $data): bool
+    public function checkout(ParkingSlot $parkingSlot, CarPark $carPark, array $data): bool
     {
-        $carPark->parkingSlot()->update([
+        $parkingSlot->update([
             'car_park_id' => null,
             'status' => 1,
         ]);
